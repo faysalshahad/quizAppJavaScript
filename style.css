@@ -1,0 +1,120 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*These will define the different colour displays depending on the quiz answer*/
+:root{
+    --hue-neutral: #FFDD83;
+    --hue-wrong: #E21818;
+    --hue-correct: #1A5D1A;
+}
+
+body{
+    --hue: var(--hue-neutral);
+    /*padding and margin 0 means evertyhing will be squished 
+    up to the side of the browser page to the very last cornaer*/
+    padding: 0;
+    margin: 0;
+    /* to bring everyhting in the center of our screen we need
+    display st to flex, justify content and allgn item set to center.
+    also we need to set width as 100 percent viewwidth and height as 
+    100 percent viewheight*/
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--hue);
+    
+}
+
+/*When correct answer is being given*/
+body.correct{
+    --hue: var(--hue-correct);
+}
+
+/*When wrong answer is being given*/
+body.wrong{
+    --hue: var(--hue-wrong);
+}
+
+.container{
+    /*Maximum width will be 800px*/
+    width: 800px;
+/* to prevent our content from overflowing in our browser page*/
+    max-width: 80%;
+    background-color: #7EAA92;
+    border-radius: 5px;
+    padding: 10px;
+/*Adding a nice box shadow around the container div*/
+    box-shadow: 0 0 10px 2px;
+}
+
+/*Transforming the button looks into boxy grid look inside the div container
+where class = button grid*/
+.button-grid {
+
+    /*displaying the buttons in grid formation*/
+    display: grid;
+
+    /*redesigning the grid template columns by
+    having two grid items side by side and the width has
+    been set as auto to let the browser define how large the
+    button sizes will be in the display browser.*/
+    grid-template-columns: repeat(2, auto);
+
+    /*Adding gaps between the buttons*/
+    gap: 10px;
+
+    /*Adding margins 20px to and bottom and 0 for left and right*/
+    margin: 20px 0;
+}
+
+.btn{
+    /*Getting the value from the variable hue*/
+    --hue: var(--hue-neutral);
+    /*Adding the broder*/
+    border: 1px solid var(--hue);
+    /*Getting the colour from hue variable*/
+    background-color: var(--hue);
+    /*Adding border radius to the button to get rounded corner*/
+    border-radius: 10spx;
+    /*Adding Padding to the top and bottom as 5 px and left and 
+    right as 10 px to make our button look bigger*/
+    padding: 5px 10px;
+    font-size: 1.3rem;
+
+}
+
+/*Changing Button Properties when mouse hover over the button*/
+.btn:hover{
+    /*Changing the background colour of the button property*/
+    background-color: #8C3333;
+    /*Changing the Text color of the button when mouse hover over the button*/
+    color: wheat;
+}
+
+.btn.correct{
+  --hue: var(--hue-correct);
+}
+
+.btn.wrong{
+    --hue:var(--hue-wrong);
+  }
+
+.start-btn, .next-btn {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide{
+    display: none;
+}
